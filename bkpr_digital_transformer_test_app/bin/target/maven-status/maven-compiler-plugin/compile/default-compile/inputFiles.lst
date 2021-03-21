@@ -1,0 +1,17 @@
+/Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/resources/LocalFileUpload.java
+/Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/exceptionhandling/ApplicationExceptionMapper.java
+/Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/BKPTestConfiguration.java
+/Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/AWS/ExtractService.java
+/Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/exceptionhandling/IllegalFileExceptionMapper.java
+/Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/exceptionhandling/FileNotFoundExceptionMapper.java
+/Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/BKPTestApplication.java
+/Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/AWS/UploadService.java
+/Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/resources/TempFileTextextract.java
+/Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/TempFile.java
+/Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/ServiceExcuteType.java
+/Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/exceptionhandling/IllegalFileException.java
+/Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/Demo/DemoExtractService.java
+/Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/ServiceExcute.java
+/Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/resources/TempFileUpload.java
+/Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/exceptionhandling/ApplicationException.java
+/Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/ServiceFactory.java

@@ -1,0 +1,271 @@
+Found a 22 line (83 tokens) duplication in the following files: 
+Starting at line 105 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/TempFileUploadTest.java
+Starting at line 91 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/TextextractTest.java
+
+	    	Assert.assertEquals(200, rp.getStatus());
+	    	
+	    }
+	    
+	    private Response response() {
+	    	Response rp = null;
+	    	Configuration config = new Configuration("profile2","anb");
+	     	
+	    	try{
+	    	 	
+	        	ExtractService es = new ExtractService(config);
+	        	es.execute();
+	        	rp =Response.status(200).build();
+	    	
+	    	}catch (Exception ex) {
+	    		ex.getLocalizedMessage();
+	    		rp= Response.status(500).build();
+	        	
+	    	}
+			return rp;
+			
+	    }
+=====================================================================
+Found a 9 line (62 tokens) duplication in the following files: 
+Starting at line 39 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/AWSTextractServiceTest.java
+Starting at line 42 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/UploadTest.java
+
+public class AWSTextractServiceTest {
+
+	@SuppressWarnings("deprecation")
+	@ClassRule
+	public static final DropwizardAppRule<BKPTestConfiguration> RULE = new DropwizardAppRule<BKPTestConfiguration>(
+			BKPTestApplication.class, ResourceHelpers.resourceFilePath("testconfig.yml"));
+
+	@SuppressWarnings("deprecation")
+	final Client client = RULE.client().register(MultiPartFeature.class).register(LocalFileUpload.class);
+=====================================================================
+Found a 3 line (43 tokens) duplication in the following files: 
+Starting at line 86 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/UploadTest.java
+Starting at line 99 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/UploadTest.java
+
+				.bodyPart(new FileDataBodyPart("localfile", testfile));
+		final Response response = client.target(String.format("http://localhost:%d/upload", RULE.getLocalPort())).request()
+				.post(Entity.entity(multipart, multipart.getMediaType()));
+=====================================================================
+Found a 17 line (36 tokens) duplication in the following files: 
+Starting at line 52 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/AWS/ExtractService.java
+Starting at line 33 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/AWS/UploadService.java
+
+	public ExtractService(Configuration config) {
+		super();
+		if (config == null) {
+			throw new RuntimeException("the configuration for running the applicaiton is invalid.");
+		}
+		this.config = config;
+	}
+
+	/**
+	 * this method to work on extracting
+	 * @throws ApplicationException 
+	 * @throws FileNotFoundException 
+	 * @throws Exception, if credential is invalid or file could not be found.Or
+	 *                    there is an IOException
+	 */
+	@Override
+	public void execute() throws FileNotFoundException, ApplicationException {
+=====================================================================
+Found a 5 line (35 tokens) duplication in the following files: 
+Starting at line 27 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/resources/TempFileTextextract.java
+Starting at line 28 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/resources/TempFileUpload.java
+
+	public Response tempFileTextextract() throws Exception {
+		Response response = null;
+		Dotenv dotenv = Dotenv.load();
+		String servieceCredential = dotenv.get("CREDENTIAL_ENV_VAR");
+		String serviceRegion = dotenv.get("REGION_ENV_VAR");
+=====================================================================
+Found a 8 line (35 tokens) duplication in the following files: 
+Starting at line 83 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/TempFileUploadTest.java
+Starting at line 98 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/TempFileUploadTest.java
+
+		  mockServer.stubFor(WireMock.get(WireMock.urlEqualTo("/upload")).willReturn(WireMock.aResponse().withStatus(500)));
+	    	
+	    	Response rp = client.target(			
+	                String.format("http://localhost:%d/upload", mockServer.port()))
+	               .request()
+	               .get();
+	    	
+	    	Assert.assertEquals(response().getStatus(), rp.getStatus());
+=====================================================================
+Found a 7 line (34 tokens) duplication in the following files: 
+Starting at line 37 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/TempFileUploadTest.java
+Starting at line 36 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/TextextractTest.java
+
+	TempFileUpload tfu;
+	
+
+	@SuppressWarnings("deprecation")
+	@ClassRule
+	public static final DropwizardAppRule<BKPTestConfiguration> RULE = new DropwizardAppRule<BKPTestConfiguration>(BKPTestApplication.class,
+			ResourceHelpers.resourceFilePath("testconfig.yml"));
+=====================================================================
+Found a 4 line (33 tokens) duplication in the following files: 
+Starting at line 41 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/AWSTextractServiceTest.java
+Starting at line 40 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/TempFileUploadTest.java
+Starting at line 38 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/TextextractTest.java
+Starting at line 44 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/UploadTest.java
+
+	@SuppressWarnings("deprecation")
+	@ClassRule
+	public static final DropwizardAppRule<BKPTestConfiguration> RULE = new DropwizardAppRule<BKPTestConfiguration>(
+			BKPTestApplication.class, ResourceHelpers.resourceFilePath("testconfig.yml"));
+=====================================================================
+Found a 7 line (33 tokens) duplication in the following files: 
+Starting at line 86 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/TempFileUploadTest.java
+Starting at line 89 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/TextextractTest.java
+
+	                String.format("http://localhost:%d/upload", mockServer.port()))
+	               .request()
+	               .get();
+	    	
+	    	Assert.assertEquals(response().getStatus(), rp.getStatus());
+	    	
+	    }
+=====================================================================
+Found a 3 line (31 tokens) duplication in the following files: 
+Starting at line 81 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/TempFileUploadTest.java
+Starting at line 95 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/TempFileUploadTest.java
+
+	    public void is_500 () throws Exception {
+	    	
+		  mockServer.stubFor(WireMock.get(WireMock.urlEqualTo("/upload")).willReturn(WireMock.aResponse().withStatus(500)));
+=====================================================================
+Found a 5 line (31 tokens) duplication in the following files: 
+Starting at line 82 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/UploadTest.java
+Starting at line 96 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/UploadTest.java
+
+	public void uploadfile_is_sucessed() throws IOException {
+
+		@SuppressWarnings("resource")
+		FormDataMultiPart multipart = (FormDataMultiPart) new FormDataMultiPart().field("foo", "bar")
+				.bodyPart(new FileDataBodyPart("localfile", testfile));
+=====================================================================
+Found a 4 line (30 tokens) duplication in the following files: 
+Starting at line 111 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/AWS/ExtractService.java
+Starting at line 76 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/AWSTextractServiceTest.java
+
+					.build();
+			DetectDocumentTextRequest request = new DetectDocumentTextRequest()
+					.withDocument(new Document().withBytes(imageBytes));
+			DetectDocumentTextResult result = client.detectDocumentText(request);
+=====================================================================
+Found a 6 line (30 tokens) duplication in the following files: 
+Starting at line 29 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/ServiceFactoryTest.java
+Starting at line 45 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/ServiceFactoryTest.java
+
+		serviceexcute = (ServiceExcute) Class.forName(String.format("com.example.bkptest.%s.UploadService", serviceProvider)).newInstance();	 
+		serviceexcute.execute();	
+		
+	}
+	
+	@Test(expected= ClassNotFoundException.class)
+=====================================================================
+Found a 10 line (29 tokens) duplication in the following files: 
+Starting at line 38 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/resources/TempFileTextextract.java
+Starting at line 40 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/main/java/com/example/bkptest/resources/TempFileUpload.java
+
+			response = Response.ok("File has been extracted.").build();
+			
+		} catch (NullPointerException ex) {
+			throw new RuntimeException("configuration is invaild." + ex.getMessage());
+		}
+		return response;
+
+	}
+
+}
+=====================================================================
+Found a 7 line (29 tokens) duplication in the following files: 
+Starting at line 110 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/AWSTextractServiceTest.java
+Starting at line 120 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/AWSTextractServiceTest.java
+
+		Configuration config = new Configuration("avddd", "");
+		ExtractService es = new ExtractService(config);
+
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			es.execute();
+		});
+	}
+=====================================================================
+Found a 4 line (28 tokens) duplication in the following files: 
+Starting at line 83 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/TempFileUploadTest.java
+Starting at line 87 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/TextextractTest.java
+
+		  mockServer.stubFor(WireMock.get(WireMock.urlEqualTo("/upload")).willReturn(WireMock.aResponse().withStatus(500)));
+	    	
+	    	Response rp = client.target(			
+	                String.format("http://localhost:%d/upload", mockServer.port()))
+=====================================================================
+Found a 9 line (27 tokens) duplication in the following files: 
+Starting at line 79 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/AWSS3ServiceTest.java
+Starting at line 111 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/AWSTextractServiceTest.java
+
+		UploadService es = new UploadService(config);
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			es.execute();
+		});
+
+	}
+
+	@Test
+	public void without_credential() {
+=====================================================================
+Found a 2 line (27 tokens) duplication in the following files: 
+Starting at line 74 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/UploadTest.java
+Starting at line 87 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/UploadTest.java
+Starting at line 101 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/UploadTest.java
+
+		Response response = client.target(String.format("http://localhost:%d/upload", RULE.getLocalPort()))
+				.request().post(null);
+=====================================================================
+Found a 7 line (26 tokens) duplication in the following files: 
+Starting at line 47 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/TempFileUploadTest.java
+Starting at line 45 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/TextextractTest.java
+
+	 private static WireMockServer mockServer =
+		      new WireMockServer(new WireMockConfiguration().dynamicPort());
+	
+	@Before
+	public void setUp() throws Exception {
+		
+		 tfu = new TempFileUpload();
+=====================================================================
+Found a 6 line (25 tokens) duplication in the following files: 
+Starting at line 75 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/AWSS3ServiceTest.java
+Starting at line 88 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/AWSS3ServiceTest.java
+
+		config.setAwsCredential("");
+		config.setAwsRegion("");
+		config.setS3BucketName("");
+
+		UploadService es = new UploadService(config);
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+=====================================================================
+Found a 7 line (25 tokens) duplication in the following files: 
+Starting at line 29 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/ServiceFactoryTest.java
+Starting at line 37 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/ServiceFactoryTest.java
+
+		serviceexcute = (ServiceExcute) Class.forName(String.format("com.example.bkptest.%s.UploadService", serviceProvider)).newInstance();	 
+		serviceexcute.execute();	
+		
+	}
+	
+	@Test(expected= ClassNotFoundException.class)
+	public void serviceProvider_is_not_exist() throws Exception  {
+=====================================================================
+Found a 7 line (25 tokens) duplication in the following files: 
+Starting at line 101 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/TempFileUploadTest.java
+Starting at line 70 of /Users/yinjueqian/eclipse-workspace/bkpr_digital_transformer_test_app/src/test/java/com/example/bkptest/resources/TextextractTest.java
+
+	                String.format("http://localhost:%d/upload", mockServer.port()))
+	               .request()
+	               .get();
+	    	
+	    	Assert.assertEquals(200, rp.getStatus());
+	    	
+	    }
